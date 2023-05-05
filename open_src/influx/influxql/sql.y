@@ -103,7 +103,7 @@ func deal_Fill (fill interface{})  (FillOption , interface{},bool) {
                 DOWNSAMPLE DOWNSAMPLES SAMPLEINTERVAL TIMEINTERVAL STREAM DELAY STREAMS
                 QUERY PARTITION
 %token <bool>   DESC ASC
-%token <str>    COMMA SEMICOLON LPAREN RPAREN REGEX
+%token <str>    COMMA SEMICOLON LPAREN RPAREN REGEX COLON
 %token <int>    EQ NEQ LT LTE GT GTE DOT DOUBLECOLON NEQREGEX EQREGEX
 %token <str>    IDENT
 %token <int64>  INTEGER
@@ -755,6 +755,10 @@ TABLE_OPTION:
 	}
 
     	$$ = &Measurement{Regex: &RegexLiteral{Val: re}}
+    }
+    |COLON MEASUREMENT
+    {
+        $$ = &Measurement{Name:""}
     }
 
 GROUP_BY_CLAUSE:

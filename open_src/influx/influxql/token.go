@@ -66,7 +66,7 @@ const (
 	//LPAREN // (
 	//RPAREN // )
 	//COMMA       // ,
-	COLON // :
+	//COLON // :
 	//DOUBLECOLON // ::
 	//SEMICOLON   // ;
 	//DOT // .
